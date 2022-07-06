@@ -1,3 +1,5 @@
 {
-  "key.hideplayers.hideplayers": "Spieler ausblenden"
+  "key.hideplayers.hideplayers": "Spieler ausblenden",
+  "hideplayers.midnightconfig.distance": "Mindestabstand: ",
+  "hideplayers.midnightconfig.title": "HidePlayers"
 }

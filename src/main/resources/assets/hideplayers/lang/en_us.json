@@ -1,3 +1,6 @@
 {
-  "key.hideplayers.hideplayers": "Hide Players"
+  "key.hideplayers.hideplayers": "Hide Players",
+  "hideplayers.midnightconfig.distance": "Min. distance: ",
+  "hideplayers.midnightconfig.title": "HidePlayers",
+  "hideplayers.hiding_players": "Hiding players"
 }

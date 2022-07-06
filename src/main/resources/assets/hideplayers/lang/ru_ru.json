@@ -1,3 +1,6 @@
 {
-  "key.hideplayers.hideplayers": "Скрыть игроков"
+  "key.hideplayers.hideplayers": "Скрыть игроков",
+  "hideplayers.midnightconfig.distance": "Минимальная дистанция: ",
+  "hideplayers.midnightconfig.title": "HidePlayers",
+  "hideplayers.hiding_players": "Скрытие игроков"
 }
