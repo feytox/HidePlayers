@@ -3,9 +3,15 @@
   "minVersion": "0.8",
   "package": "fr.minemobs.hideplayers.mixin",
   "compatibilityLevel": "JAVA_16",
-  "mixins": [],
+  "mixins": [
+    "ItemMixin",
+    "PlayerEntityMixin"
+  ],
   "client": [
-    "EntityRenderDispatcherMixin"
+    "ArmorFeatureRendererMixin",
+    "EntityRenderDispatcherMixin",
+    "PlayerEntityRendererMixin",
+    "PlayerHeldItemFeatureRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

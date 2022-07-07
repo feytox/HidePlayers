@@ -1,6 +1,21 @@
 {
-  "key.hideplayers.hideplayers": "Скрыть игроков",
-  "hideplayers.midnightconfig.distance": "Минимальная дистанция: ",
+  "hideplayers.midnightconfig.hidePlayersdistance": "Минимальная дистанция для скрытия игроков: ",
+  "hideplayers.midnightconfig.hidePlayers": "Скрытие игроков",
+  "hideplayers.midnightconfig.showOnlyHeads": "Отображение только голов игроков",
+  "hideplayers.midnightconfig.hideArmor": "Скрытие брони",
+  "hideplayers.midnightconfig.hideHeldItems": "Скрытие предметов в руках",
+  "hideplayers.midnightconfig.hideGlint": "Скрытие эффект зачарования",
+  "hideplayers.midnightconfig.hide2ndLayer": "Скрытие второго слоя игроков",
+  "hideplayers.midnightconfig.saveToMemory": "Тип сохранения в память: ",
+  "hideplayers.midnightconfig.enum.savingTypes.ONLY_NUMS": "ТОЛЬКО ЧИСЛА",
+  "hideplayers.midnightconfig.enum.savingTypes.ALL": "ВСЁ",
+
   "hideplayers.midnightconfig.title": "HidePlayers",
-  "hideplayers.hiding_players": "Скрытие игроков"
+
+  "key.hideplayers.hideplayers": "Скрыть игроков",
+  "key.hideplayers.showOnlyHeads": "Отображать только головы",
+  "key.hideplayers.hideArmor": "Скрыть броню",
+  "key.hideplayers.hideHeldItems": "Скрыть предметы в руках",
+  "key.hideplayers.hideGlint": "Скрыть эффект зачарования",
+  "key.hideplayers.hide2ndLayer": "Скрыть второго слоя игроков"
 }

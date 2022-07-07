@@ -8,39 +8,98 @@ import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.lwjgl.glfw.GLFW;
 
 public class HidePlayers implements ModInitializer {
-
-    private static boolean renderPlayer;
+    public static final String MOD_ID = "hideplayers";
 
     @Override
     public void onInitialize() {
-        HidePlayersConfig.init("hideplayers", HidePlayersConfig.class);
+        HidePlayersConfig.init();
 
-        renderPlayer = true;
-        KeyBinding renderPlayerKey = KeyBindingHelper.registerKeyBinding(
+        KeyBinding hidePlayersKey = KeyBindingHelper.registerKeyBinding(
                 new KeyBinding(
-                        "key.hideplayers.hideplayers",
+                        "key." + MOD_ID + ".hideplayers",
                     InputUtil.Type.KEYSYM,
-                    GLFW.GLFW_KEY_H,
-                    "key.hideplayers.hideplayers"
+                    GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
         ));
+        KeyBinding showOnlyHeadsKey = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding(
+                        "key." + MOD_ID + ".showOnlyHeads",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                ));
+
+        KeyBinding hideArmorKey = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding(
+                        "key." + MOD_ID + ".hideArmor",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                ));
+
+        KeyBinding hideHeldItemsKey = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding(
+                        "key." + MOD_ID + ".hideHeldItems",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                ));
+
+        KeyBinding hideGlintKey = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding(
+                        "key." + MOD_ID + ".showGlint",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                ));
+
+        KeyBinding hide2ndLayerKey = KeyBindingHelper.registerKeyBinding(
+                new KeyBinding(
+                        "key." + MOD_ID + ".hide2ndLayer",
+                        InputUtil.Type.KEYSYM,
+                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                ));
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while(renderPlayerKey.wasPressed()) {
-                renderPlayer = !renderPlayer;
-                client.player.sendMessage(new LiteralText(new TranslatableText("hideplayers.hiding_players").getString() + ": " + new TranslatableText(renderPlayer? "options.off":"options.on").getString()), true);
+            while(hidePlayersKey.wasPressed()) {
+                HidePlayersConfig.hidePlayers = !HidePlayersConfig.hidePlayers;
+                HidePlayersConfig.save();
+                showToggleStatus("hidePlayers", HidePlayersConfig.hidePlayers);
+            }
+            while(showOnlyHeadsKey.wasPressed()) {
+                HidePlayersConfig.showOnlyHeads = !HidePlayersConfig.showOnlyHeads;
+                HidePlayersConfig.save();
+                showToggleStatus("showOnlyHeads", HidePlayersConfig.showOnlyHeads);
+            }
+            while(hideArmorKey.wasPressed()) {
+                HidePlayersConfig.hideArmor = !HidePlayersConfig.hideArmor;
+                HidePlayersConfig.save();
+                showToggleStatus("hideArmor", HidePlayersConfig.hideArmor);
+            }
+            while(hideHeldItemsKey.wasPressed()) {
+                HidePlayersConfig.hideHeldItems = !HidePlayersConfig.hideHeldItems;
+                HidePlayersConfig.save();
+                showToggleStatus("hideHeldItems", HidePlayersConfig.hideHeldItems);
+            }
+            while(hideGlintKey.wasPressed()) {
+                HidePlayersConfig.hideGlint = !HidePlayersConfig.hideGlint;
+                HidePlayersConfig.save();
+                showToggleStatus("hideGlint", HidePlayersConfig.hideGlint);
+            }
+            while(hide2ndLayerKey.wasPressed()) {
+                HidePlayersConfig.hide2ndLayer = !HidePlayersConfig.hideGlint;
+                HidePlayersConfig.save();
+                showToggleStatus("hide2ndLayer", HidePlayersConfig.hide2ndLayer);
             }
         });
     }
 
-    public static boolean isRenderPlayer() {
-        return renderPlayer;
+    public static void showToggleStatus(String keyName, boolean toggleBoolean) {
+        assert MinecraftClient.getInstance().player != null;
+        MinecraftClient.getInstance().player.sendMessage(new LiteralText(new TranslatableText(MOD_ID + ".midnightconfig." + keyName)
+                .getString() + ": " + new TranslatableText(toggleBoolean? "options.on":"options.off").getString()), true);
+
     }
 
     public static double getDistance() {
-        return Math.pow(HidePlayersConfig.distance, 2);
+        return Math.pow(HidePlayersConfig.hidePlayersdistance, 2);
     }
 }
