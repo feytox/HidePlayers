@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "fr.minemobs.hideplayers.mixin",
+  "package": "name.uwu.feytox.toomanyplayers.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "ItemMixin",
@@ -11,7 +11,9 @@
     "ArmorFeatureRendererMixin",
     "EntityRenderDispatcherMixin",
     "PlayerEntityRendererMixin",
-    "PlayerHeldItemFeatureRendererMixin"
+    "PlayerHeldItemFeatureRendererMixin",
+    "PlayerListEntryMixin",
+    "accessors.PlayerListEntryAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

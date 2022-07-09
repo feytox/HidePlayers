@@ -1,6 +1,8 @@
-package fr.minemobs.hideplayers.mixin;
+package name.uwu.feytox.toomanyplayers.mixin;
 
-import fr.minemobs.hideplayers.HidePlayersConfig;
+import name.uwu.feytox.toomanyplayers.HidingAreas;
+import name.uwu.feytox.toomanyplayers.TMPConfig;
+import name.uwu.feytox.toomanyplayers.TooManyPlayers;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.PlayerHeldItemFeatureRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
@@ -19,8 +21,13 @@ public class PlayerHeldItemFeatureRendererMixin {
 
     @Inject(method = "renderItem", at = @At("HEAD"), cancellable = true)
     public void onRenderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode transformationMode, Arm arm, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
-        if (entity instanceof PlayerEntity && !((PlayerEntity) entity).isMainPlayer() && HidePlayersConfig.hideHeldItems) {
-            ci.cancel();
+        if (TMPConfig.toggleMod) {
+            if ((TMPConfig.hideHeldItems && !TMPConfig.toggleAreas) || HidingAreas.isThirdArea(entity)) {
+                if (entity instanceof PlayerEntity && !((PlayerEntity) entity).isMainPlayer()
+                        && !TooManyPlayers.checkWhitelist(entity)) {
+                    ci.cancel();
+                }
+            }
         }
     }
 }

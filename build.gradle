@@ -12,6 +12,10 @@ group = project.maven_group
 
 repositories {
 	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
+	maven {
 		name = "Modrinth"
 		url = "https://api.modrinth.com/maven"
 		content {
@@ -28,6 +32,8 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	modImplementation include("io.github.cottonmc:LibGui:5.4.2+1.18.2")
 
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	include "maven.modrinth:midnightlib:${project.midnightlib_version}"

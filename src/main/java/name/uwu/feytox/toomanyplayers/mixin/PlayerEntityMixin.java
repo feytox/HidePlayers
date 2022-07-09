@@ -1,7 +1,8 @@
-package fr.minemobs.hideplayers.mixin;
+package name.uwu.feytox.toomanyplayers.mixin;
 
-import fr.minemobs.hideplayers.HidePlayersConfig;
-import net.minecraft.client.MinecraftClient;
+import name.uwu.feytox.toomanyplayers.HidingAreas;
+import name.uwu.feytox.toomanyplayers.TMPConfig;
+import name.uwu.feytox.toomanyplayers.TooManyPlayers;
 import net.minecraft.client.render.entity.PlayerModelPart;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,10 +15,12 @@ public abstract class PlayerEntityMixin {
 
     @Inject(method = "isPartVisible", at = @At("HEAD"), cancellable = true)
     public void onIsPartVisible(PlayerModelPart modelPart, CallbackInfoReturnable<Boolean> cir) {
-        if (HidePlayersConfig.hide2ndLayer) {
-            assert MinecraftClient.getInstance().player != null;
-            if (!((PlayerEntity)(Object) this).getUuid().equals(MinecraftClient.getInstance().player.getUuid())) {
-                cir.setReturnValue(false);
+        PlayerEntity player = ((PlayerEntity) (Object) this);
+        if (TMPConfig.toggleMod) {
+            if ((TMPConfig.hide2ndLayer && !TMPConfig.toggleAreas) || HidingAreas.isSecondArea(player)) {
+                if (!player.isMainPlayer() && !TooManyPlayers.checkWhitelist(player)) {
+                    cir.setReturnValue(false);
+                }
             }
         }
     }

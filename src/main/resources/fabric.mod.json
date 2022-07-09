@@ -1,27 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "hideplayers",
+  "id": "toomanyplayers",
   "version": "${version}",
-  "name": "HidePlayers",
+  "name": "Too Many Players",
   "description": "I don't like players",
   "authors": [
+    "Feytox",
+    "DearFox",
     "minemobs"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/hideplayers",
+    "homepage": "https://modrinth.com/mod/tmp",
     "sources": "https://github.com/minemobs/hideplayers",
     "issues": "https://github.com/minemobs/hideplayers/issues"
   },
   "license": "MIT",
-  "icon": "assets/hideplayers/icon.png",
+  "icon": "assets/toomanyplayers/icon.png",
   "environment": "client",
   "entrypoints": {
     "main": [
-      "fr.minemobs.hideplayers.HidePlayers"
+      "name.uwu.feytox.toomanyplayers.TooManyPlayers"
     ]
   },
   "mixins": [
-    "hideplayers.mixins.json"
+    "toomanyplayers.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.14.6",
