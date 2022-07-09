@@ -38,6 +38,7 @@
   "key.toomanyplayers.hide2ndLayer": "Hide players' second layer",
   "key.toomanyplayers.toggleMod": "Enable optimization",
   "key.toomanyplayers.fastMenu": "Open player interaction menu.",
+  "key.toomanyplayers.toggleAreas": "Toggle Hiding Areas",
 
   "toomanyplayers.whitelist.list": "Your whitelist: %s",
   "toomanyplayers.whitelist.add": "%s added to your whitelist",

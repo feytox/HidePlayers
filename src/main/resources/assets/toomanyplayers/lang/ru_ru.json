@@ -21,7 +21,7 @@
   "key.toomanyplayers.hideGlint": "Глобально скрыть эффект зачарования",
   "key.toomanyplayers.hide2ndLayer": "Скрыть второй слой игроков",
   "toomanyplayers.midnightconfig.hideskinlist": "Список игроков со скрытым скином: ",
-  "toomanyplayers.midnightconfig.toggleAreas": "Включить области скрытия: ",
+  "toomanyplayers.midnightconfig.toggleAreas": "Включить области скрытия",
   "toomanyplayers.midnightconfig.firstRadius": "Радиус первой области скрытия: ",
   "toomanyplayers.midnightconfig.secondRadius": "Радиус второй области скрытия: ",
   "toomanyplayers.midnightconfig.thirdRadius": "Радиус третьей области скрытия: ",
@@ -46,8 +46,8 @@
   "toomanyplayers.gui.white_list": "Всегда показывать",
   "toomanyplayers.gui.block_list": "Скрыть игрока",
   "toomanyplayers.gui.hide_skin": "Скрыть скин",
-  "toomanyplayers.midnightconfig.toggleMod": "Включить оптимизацию",
-  "key.toomanyplayers.toggleMod": "Включить оптимизацию",
+  "toomanyplayers.midnightconfig.toggleMod": "Включить мод",
+  "key.toomanyplayers.toggleMod": "Включить мод",
   "key.toomanyplayers.fastMenu": "Открыть меню взаимодействия с игроком",
   "toomanyplayers.midnightconfig.firstArea": "(Оптимизация выключена)",
   "toomanyplayers.midnightconfig.secondArea": "(Скрыты броня и второй слой)",
@@ -56,5 +56,6 @@
   "toomanyplayers.midnightconfig.blockingType": "Тип блокировки игрока",
   "toomanyplayers.midnightconfig.enum.BlockingType.KEEP_HEADS": "Только голова",
   "toomanyplayers.midnightconfig.enum.BlockingType.ALL": "Скрыть полностью",
-  "toomanyplayers.list.alreadyAdded": "%s уже добавлен в этот список"
+  "toomanyplayers.list.alreadyAdded": "%s уже добавлен в этот список",
+  "key.toomanyplayers.toggleAreas": "Включить области скрытия"
 }

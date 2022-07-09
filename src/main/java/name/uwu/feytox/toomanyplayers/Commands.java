@@ -21,7 +21,7 @@ public class Commands {
                                         .executes(context -> {
                                             String[] inputSplitted = context.getInput().split(" ");
                                             String nick = inputSplitted[inputSplitted.length-1];
-                                            if (TMPConfig.whitelist.contains(nick)) {
+                                            if (!TMPConfig.whitelist.contains(nick)) {
                                                 TMPConfig.whitelist.add(nick);
                                                 TMPConfig.save();
                                                 MinecraftClient.getInstance().player.sendMessage(new LiteralText(
@@ -73,7 +73,7 @@ public class Commands {
                                         .executes(context -> {
                                             String[] inputSplitted = context.getInput().split(" ");
                                             String nick = inputSplitted[inputSplitted.length-1];
-                                            if (TMPConfig.blocklist.contains(nick)) {
+                                            if (!TMPConfig.blocklist.contains(nick)) {
                                                 TMPConfig.blocklist.add(nick);
                                                 TMPConfig.save();
                                                 MinecraftClient.getInstance().player.sendMessage(new LiteralText(
@@ -125,7 +125,7 @@ public class Commands {
                                         .executes(context -> {
                                             String[] inputSplitted = context.getInput().split(" ");
                                             String nick = inputSplitted[inputSplitted.length-1];
-                                            if (TMPConfig.hideskinlist.contains(nick)) {
+                                            if (!TMPConfig.hideskinlist.contains(nick)) {
                                                 TMPConfig.hideskinlist.add(nick);
                                                 TMPConfig.save();
                                                 MinecraftClient.getInstance().player.sendMessage(new LiteralText(

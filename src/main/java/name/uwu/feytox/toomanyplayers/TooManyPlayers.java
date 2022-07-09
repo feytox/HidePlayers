@@ -38,6 +38,7 @@ public class TooManyPlayers implements ModInitializer {
         KeyBinding hideGlintKey = registerKey("hideGlint");
         KeyBinding hide2ndLayerKey = registerKey("hide2ndLayer");
         KeyBinding toggleModKey = registerKey("toggleMod");
+        KeyBinding toggleAreasKey = registerKey("toggleAreas");
 
         KeyBinding fastMenuKey = registerKey("fastMenu");
 
@@ -76,6 +77,11 @@ public class TooManyPlayers implements ModInitializer {
                 TMPConfig.toggleMod = !TMPConfig.toggleMod;
                 TMPConfig.save();
                 showToggleStatus("toggleMod", TMPConfig.toggleMod);
+            }
+            while(toggleAreasKey.wasPressed()) {
+                TMPConfig.toggleAreas = !TMPConfig.toggleAreas;
+                TMPConfig.save();
+                showToggleStatus("toggleAreas", TMPConfig.toggleAreas);
             }
             while (fastMenuKey.wasPressed()) {
                 Entity targetedEntity = getTargetedPlayer();

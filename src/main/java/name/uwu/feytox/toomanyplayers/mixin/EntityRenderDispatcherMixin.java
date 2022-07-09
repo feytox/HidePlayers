@@ -23,7 +23,8 @@ public class EntityRenderDispatcherMixin {
             if ((TMPConfig.hidePlayers && !TMPConfig.toggleAreas) || HidingAreas.isOtherArea(entity)
                     || (entity instanceof PlayerEntity && TooManyPlayers.checkBlocklistALL(entity))) {
                 if (entity instanceof PlayerEntity player && !player.isMainPlayer()
-                    && MinecraftClient.getInstance().player.squaredDistanceTo(player) > TooManyPlayers.getDistance()) {
+                    && (MinecraftClient.getInstance().player.squaredDistanceTo(player) > TooManyPlayers.getDistance() ||
+                        TooManyPlayers.checkBlocklistALL(entity))) {
                     if (!TooManyPlayers.checkWhitelist(entity)) {
                         ci.cancel();
                     }
