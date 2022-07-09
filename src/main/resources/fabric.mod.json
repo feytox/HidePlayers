@@ -11,8 +11,8 @@
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/tmp",
-    "sources": "https://github.com/minemobs/hideplayers",
-    "issues": "https://github.com/minemobs/hideplayers/issues"
+    "sources": "https://github.com/feytox/TooManyPlayers",
+    "issues": "https://github.com/feytox/TooManyPlayers/issues"
   },
   "license": "MIT",
   "icon": "assets/toomanyplayers/icon.png",
