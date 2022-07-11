@@ -24,21 +24,21 @@ public class TMPConfig extends MidnightConfig {
     @Comment
     public static Comment firstArea;
     @Entry(min=0)
-    public static double firstRadius = 10;
+    public static double firstRadius = 5;
 
     @Comment
     public static Comment secondArea;
     @Entry(min=0)
-    public static double secondRadius = 20;
+    public static double secondRadius = 10;
     @Entry
     public static boolean areasHideArmor = true;
     @Entry
-    public static boolean areasHide2ndLayer = true;
+    public static boolean areasHide2ndLayer = false;
 
     @Comment
     public static Comment thirdArea;
     @Entry(min=0)
-    public static double thirdRadius = 30;
+    public static double thirdRadius = 15;
     @Entry
     public static boolean areasShowOnlyHeads = true;
     @Entry
@@ -52,6 +52,7 @@ public class TMPConfig extends MidnightConfig {
     @Comment
     public static Comment lists;
 
+    // #СП - Arrays.asList("5opka", "DearFox", "BobSlave")
     @Entry
     public static List<String> whitelist = new ArrayList<>();
 
@@ -90,7 +91,7 @@ public class TMPConfig extends MidnightConfig {
     public static boolean hideGlint = true;
 
     @Entry
-    public static boolean hide2ndLayer = true;
+    public static boolean hide2ndLayer = false;
 
     public static void save() {
         TMPConfig.write(TooManyPlayers.MOD_ID);
