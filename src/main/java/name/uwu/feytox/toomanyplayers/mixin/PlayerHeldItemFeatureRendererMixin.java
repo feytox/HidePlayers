@@ -22,7 +22,7 @@ public class PlayerHeldItemFeatureRendererMixin {
     @Inject(method = "renderItem", at = @At("HEAD"), cancellable = true)
     public void onRenderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode transformationMode, Arm arm, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (TMPConfig.toggleMod) {
-            if ((TMPConfig.hideHeldItems && !TMPConfig.toggleAreas) || HidingAreas.isThirdArea(entity)) {
+            if ((TMPConfig.hideHeldItems && !TMPConfig.toggleAreas) || HidingAreas.isHeldItemsHiding(entity)) {
                 if (entity instanceof PlayerEntity && !((PlayerEntity) entity).isMainPlayer()
                         && !TooManyPlayers.checkWhitelist(entity)) {
                     ci.cancel();

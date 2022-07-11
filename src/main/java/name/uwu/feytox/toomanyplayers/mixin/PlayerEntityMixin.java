@@ -17,7 +17,7 @@ public abstract class PlayerEntityMixin {
     public void onIsPartVisible(PlayerModelPart modelPart, CallbackInfoReturnable<Boolean> cir) {
         PlayerEntity player = ((PlayerEntity) (Object) this);
         if (TMPConfig.toggleMod) {
-            if ((TMPConfig.hide2ndLayer && !TMPConfig.toggleAreas) || HidingAreas.isSecondArea(player)) {
+            if ((TMPConfig.hide2ndLayer && !TMPConfig.toggleAreas) || HidingAreas.is2ndLayerHiding(player)) {
                 if (!player.isMainPlayer() && !TooManyPlayers.checkWhitelist(player)) {
                     cir.setReturnValue(false);
                 }

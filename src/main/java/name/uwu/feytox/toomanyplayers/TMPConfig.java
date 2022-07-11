@@ -21,20 +21,33 @@ public class TMPConfig extends MidnightConfig {
     @Entry
     public static boolean toggleAreas = true;
 
-    @Entry(min=0)
-    public static double firstRadius = 10;
     @Comment
     public static Comment firstArea;
     @Entry(min=0)
-    public static double secondRadius = 20;
+    public static double firstRadius = 10;
+
     @Comment
     public static Comment secondArea;
     @Entry(min=0)
-    public static double thirdRadius = 30;
+    public static double secondRadius = 20;
+    @Entry
+    public static boolean areasHideArmor = true;
+    @Entry
+    public static boolean areasHide2ndLayer = true;
+
     @Comment
     public static Comment thirdArea;
+    @Entry(min=0)
+    public static double thirdRadius = 30;
+    @Entry
+    public static boolean areasShowOnlyHeads = true;
+    @Entry
+    public static boolean areasHideHeldItems = true;
+
     @Comment
     public static Comment otherArea;
+    @Entry
+    public static boolean areasHidePlayers = true;
 
     @Comment
     public static Comment lists;

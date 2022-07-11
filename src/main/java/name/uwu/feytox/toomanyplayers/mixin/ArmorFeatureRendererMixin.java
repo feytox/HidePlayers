@@ -23,7 +23,7 @@ public class ArmorFeatureRendererMixin<T extends LivingEntity, A extends BipedEn
         if (TMPConfig.toggleMod) {
             if (((TMPConfig.hideArmor || ((TMPConfig.showOnlyHeads || TooManyPlayers.checkBlocklistKeepHeads(entity))
                     && !armorSlot.equals(EquipmentSlot.HEAD)))
-                    && !TMPConfig.toggleAreas) || HidingAreas.isSecondArea(entity)) {
+                    && !TMPConfig.toggleAreas) || HidingAreas.isArmorHiding(entity)) {
                 if (entity instanceof PlayerEntity && !((PlayerEntity) entity).isMainPlayer()) {
                     if (!TooManyPlayers.checkWhitelist(entity)) {
                         ci.cancel();

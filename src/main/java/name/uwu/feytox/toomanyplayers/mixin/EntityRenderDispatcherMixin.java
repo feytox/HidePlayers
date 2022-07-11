@@ -20,7 +20,7 @@ public class EntityRenderDispatcherMixin {
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private <E extends Entity> void render(E entity, double x, double y, double z, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (TMPConfig.toggleMod) {
-            if ((TMPConfig.hidePlayers && !TMPConfig.toggleAreas) || HidingAreas.isOtherArea(entity)
+            if ((TMPConfig.hidePlayers && !TMPConfig.toggleAreas) || HidingAreas.isPlayersHiding(entity)
                     || (entity instanceof PlayerEntity && TooManyPlayers.checkBlocklistALL(entity))) {
                 if (entity instanceof PlayerEntity player && !player.isMainPlayer()
                     && (MinecraftClient.getInstance().player.squaredDistanceTo(player) > TooManyPlayers.getDistance() ||

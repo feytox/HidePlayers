@@ -19,7 +19,7 @@ public class PlayerEntityRendererMixin {
     public void onSetModelPose(AbstractClientPlayerEntity player, CallbackInfo ci) {
         if (TMPConfig.toggleMod) {
             PlayerEntityModel<AbstractClientPlayerEntity> playerEntityModel = ((PlayerEntityRenderer) (Object) this).getModel();
-            if ((TMPConfig.showOnlyHeads && !TMPConfig.toggleAreas) || HidingAreas.isThirdArea(player)
+            if ((TMPConfig.showOnlyHeads && !TMPConfig.toggleAreas) || HidingAreas.isOnlyHeadsShown(player)
                     || TooManyPlayers.checkBlocklistKeepHeads(player)) {
                 if (!player.isMainPlayer() && !TooManyPlayers.checkWhitelist(player)) {
                     playerEntityModel.setVisible(false);
