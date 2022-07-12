@@ -34,7 +34,6 @@
   "toomanyplayers.midnightconfig.enum.BlockingType.ALL": "Hide fully",
   "toomanyplayers.midnightconfig.toggleOnlineWhitelist": "Enable online whitelist",
   "toomanyplayers.midnightconfig.onlineWhitelistUrl": "Online whitelist url",
-  "toomanyplayers.midnightconfig.openConfigKey": "Open config menu",
 
   "toomanyplayers.midnightconfig.title": "Too Many Players",
 
@@ -48,6 +47,7 @@
   "key.toomanyplayers.fastMenu": "Open player interaction menu.",
   "key.toomanyplayers.toggleAreas": "Toggle Hiding Areas",
   "key.toomanyplayers.toggleOnlineWhitelist": "Toggle online whitelist",
+  "key.toomanyplayers.openConfigKey": "Open config menu",
 
   "toomanyplayers.preset.create": "The preset has been successfully created using the current settings",
   "toomanyplayers.preset.remove.success": "The preset has been successfully removed",
