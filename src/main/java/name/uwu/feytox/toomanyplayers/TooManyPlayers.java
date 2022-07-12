@@ -28,6 +28,9 @@ public class TooManyPlayers implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        OnlineWhitelist.reloadWhitelist("https://jsonplaceholder.typicode.com/todos/1");
+        System.out.println(OnlineWhitelist.onlineList);
+
         TMPConfig.init();
         Commands.init();
 
@@ -37,10 +40,12 @@ public class TooManyPlayers implements ModInitializer {
         KeyBinding hideHeldItemsKey = registerKey("hideHeldItems");
         KeyBinding hideGlintKey = registerKey("hideGlint");
         KeyBinding hide2ndLayerKey = registerKey("hide2ndLayer");
-        KeyBinding toggleModKey = registerKey("toggleMod");
+        KeyBinding toggleModKey = registerKey("toggleMod", GLFW.GLFW_KEY_J);
         KeyBinding toggleAreasKey = registerKey("toggleAreas");
+        KeyBinding toggleOnlineWhitelist_key = registerKey("toggleOnlineWhitelist");
 
         KeyBinding fastMenuKey = registerKey("fastMenu");
+        KeyBinding openConfigKey = registerKey("openConfigKey");
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while(hidePlayersKey.wasPressed()) {
@@ -86,10 +91,18 @@ public class TooManyPlayers implements ModInitializer {
             while (fastMenuKey.wasPressed()) {
                 Entity targetedEntity = getTargetedPlayer();
                 if (targetedEntity != null) {
-                    MinecraftClient.getInstance().setScreen(new GuiScreen(new FastMenuGui(targetedEntity.getName().getString())));
+                    client.setScreen(new GuiScreen(new FastMenuGui(targetedEntity.getName().getString())));
                 } else {
-                    MinecraftClient.getInstance().setScreen(new GuiScreen(new FastMenuGui()));
+                    client.setScreen(new GuiScreen(new FastMenuGui()));
                 }
+            }
+            while (toggleOnlineWhitelist_key.wasPressed()) {
+                TMPConfig.toggleOnlineWhitelist = !TMPConfig.toggleOnlineWhitelist;
+                TMPConfig.save();
+                showToggleStatus("toggleOnlineWhitelist", TMPConfig.toggleOnlineWhitelist);
+            }
+            while (openConfigKey.wasPressed()) {
+                client.setScreen(TMPConfig.getScreen(client.currentScreen, "toomanyplayers"));
             }
         });
     }
@@ -106,7 +119,9 @@ public class TooManyPlayers implements ModInitializer {
     }
 
     public static boolean checkWhitelist(Entity entity) {
-        return TMPConfig.whitelist.contains(entity.getName().getString());
+        String entityName = entity.getName().getString();
+        return (TMPConfig.toggleOnlineWhitelist && OnlineWhitelist.onlineList.contains(entityName))
+                || TMPConfig.whitelist.contains(entityName);
     }
 
     public static boolean checkBlocklistALL(Entity entity) {
@@ -118,11 +133,15 @@ public class TooManyPlayers implements ModInitializer {
     }
 
     private static KeyBinding registerKey(String keyname) {
+        return registerKey(keyname, GLFW.GLFW_KEY_UNKNOWN);
+    }
+
+    private static KeyBinding registerKey(String keyname, int key) {
         return KeyBindingHelper.registerKeyBinding(
                 new KeyBinding(
                         "key." + MOD_ID + "." + keyname,
                         InputUtil.Type.KEYSYM,
-                        GLFW.GLFW_KEY_UNKNOWN, MOD_ID + ".midnightconfig.title"
+                        key, MOD_ID + ".midnightconfig.title"
                 ));
     }
 

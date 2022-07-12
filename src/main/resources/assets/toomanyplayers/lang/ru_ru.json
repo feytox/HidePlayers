@@ -62,5 +62,18 @@
   "toomanyplayers.midnightconfig.enum.BlockingType.KEEP_HEADS": "Только голова",
   "toomanyplayers.midnightconfig.enum.BlockingType.ALL": "Скрыть полностью",
   "toomanyplayers.list.alreadyAdded": "%s уже добавлен в этот список",
-  "key.toomanyplayers.toggleAreas": "Включить области скрытия"
+  "key.toomanyplayers.toggleAreas": "Включить области скрытия",
+
+  "toomanyplayers.midnightconfig.toggleOnlineWhitelist": "Включить онлайн вайтлист",
+  "toomanyplayers.midnightconfig.onlineWhitelistUrl": "Ссылка на онлайн вайтлист",
+  "toomanyplayers.midnightconfig.openConfigKey": "Открыть меню конфига",
+  "key.toomanyplayers.toggleOnlineWhitelist": "Включить онлайн вайтлист",
+  "toomanyplayers.preset.create": "Пресет был успешно создан на основе текущих настроек",
+  "toomanyplayers.preset.remove.success": "Пресет был успешно удалён",
+  "toomanyplayers.preset.remove.fail": "Возникла ошибка при удалении пресета",
+  "toomanyplayers.preset.select.success": "Пресет был успешно выбран",
+  "toomanyplayers.preset.select.fail": "Возникла ошибка при применении пресета",
+  "toomanyplayers.preset.list": "Ваши пресеты: %s",
+  "toomanyplayers.online.success": "Онлайн вайтлист был успешно перезагружен",
+  "toomanyplayers.online.fail": "Возникла ошибка при получении онлайн вайтлиста"
 }

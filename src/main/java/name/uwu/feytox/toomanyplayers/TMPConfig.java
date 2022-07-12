@@ -52,7 +52,6 @@ public class TMPConfig extends MidnightConfig {
     @Comment
     public static Comment lists;
 
-    // #СП - Arrays.asList("5opka", "DearFox", "BobSlave")
     @Entry
     public static List<String> whitelist = new ArrayList<>();
 
@@ -79,7 +78,7 @@ public class TMPConfig extends MidnightConfig {
     public static double hidePlayersdistance = 10;
 
     @Entry
-    public static boolean showOnlyHeads = true;
+    public static boolean showOnlyHeads = false;
 
     @Entry
     public static boolean hideArmor = false;
@@ -88,10 +87,16 @@ public class TMPConfig extends MidnightConfig {
     public static boolean hideHeldItems = false;
 
     @Entry
-    public static boolean hideGlint = true;
+    public static boolean hideGlint = false;
 
     @Entry
     public static boolean hide2ndLayer = false;
+
+    @Entry
+    public static boolean toggleOnlineWhitelist = false;
+
+    @Entry
+    public static String onlineWhitelistUrl = "http://tmp-sp-whitelist.uwu.name";
 
     public static void save() {
         TMPConfig.write(TooManyPlayers.MOD_ID);

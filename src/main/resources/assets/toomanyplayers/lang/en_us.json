@@ -32,6 +32,9 @@
   "toomanyplayers.midnightconfig.blockingType": "Player blocking type",
   "toomanyplayers.midnightconfig.enum.BlockingType.KEEP_HEADS": "Heads only",
   "toomanyplayers.midnightconfig.enum.BlockingType.ALL": "Hide fully",
+  "toomanyplayers.midnightconfig.toggleOnlineWhitelist": "Enable online whitelist",
+  "toomanyplayers.midnightconfig.onlineWhitelistUrl": "Online whitelist url",
+  "toomanyplayers.midnightconfig.openConfigKey": "Open config menu",
 
   "toomanyplayers.midnightconfig.title": "Too Many Players",
 
@@ -44,6 +47,17 @@
   "key.toomanyplayers.toggleMod": "Enable optimization",
   "key.toomanyplayers.fastMenu": "Open player interaction menu.",
   "key.toomanyplayers.toggleAreas": "Toggle Hiding Areas",
+  "key.toomanyplayers.toggleOnlineWhitelist": "Toggle online whitelist",
+
+  "toomanyplayers.preset.create": "The preset has been successfully created using the current settings",
+  "toomanyplayers.preset.remove.success": "The preset has been successfully removed",
+  "toomanyplayers.preset.remove.fail": "An error occurred while removing the preset",
+  "toomanyplayers.preset.select.success": "The preset has been successfully selected",
+  "toomanyplayers.preset.select.fail": "An error occurred while selecting the preset",
+  "toomanyplayers.preset.list": "Your presets: %s",
+
+  "toomanyplayers.online.success": "Online whitelist has been successfully reloaded",
+  "toomanyplayers.online.fail": "An error occurred while requesting the online whitelist",
 
   "toomanyplayers.whitelist.list": "Your whitelist: %s",
   "toomanyplayers.whitelist.add": "%s added to your whitelist",
