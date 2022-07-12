@@ -23,7 +23,7 @@ public class Presets {
             }
         }
         if (withDefault) {
-            result.addAll(Arrays.asList("default", "default2", "SP"));
+            result.addAll(Arrays.asList("default", "SP", "SP_potato"));
         }
 
         return result;
@@ -53,7 +53,7 @@ public class Presets {
 
         switch (presetName) {
             case "default" -> defaultCfg();
-            case "default2" -> default2Cfg();
+            case "SP_potato" -> spPotatoCfg();
             case "SP" -> spCfg();
         }
         TMPConfig.save();
@@ -93,18 +93,14 @@ public class Presets {
     }
 
     // cfg by dearfox
-    private static void default2Cfg() {
-        defaultCfg();
-        TMPConfig.toggleMod = true;
-        TMPConfig.secondRadius = 7;
-        TMPConfig.thirdRadius = 30;
-        TMPConfig.areasHideHeldItems = false;
+    private static void spCfg() {
+        spPotatoCfg();
         TMPConfig.areasHidePlayers = false;
-        TMPConfig.blockingType = TMPConfig.BlockingType.KEEP_HEADS;
+        TMPConfig.areasHideHeldItems = false;
     }
 
     // cfg by Feytox
-    private static void spCfg() {
+    private static void spPotatoCfg() {
         defaultCfg();
         TMPConfig.toggleOnlineWhitelist = true;
         OnlineWhitelist.reloadWhitelist();
