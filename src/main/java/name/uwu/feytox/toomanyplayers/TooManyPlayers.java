@@ -28,11 +28,10 @@ public class TooManyPlayers implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        OnlineWhitelist.reloadWhitelist("https://jsonplaceholder.typicode.com/todos/1");
-        System.out.println(OnlineWhitelist.onlineList);
-
         TMPConfig.init();
         Commands.init();
+        
+        OnlineWhitelist.reloadWhitelist();
 
         KeyBinding hidePlayersKey = registerKey("hidePlayers");
         KeyBinding showOnlyHeadsKey = registerKey("showOnlyHeads");
