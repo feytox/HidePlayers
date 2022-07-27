@@ -1,21 +1,20 @@
 package name.uwu.feytox.toomanyplayers;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
-import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.command.argument.EntityArgumentType;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 
 import static name.uwu.feytox.toomanyplayers.TooManyPlayers.MOD_ID;
-import static net.fabricmc.fabric.api.client.command.v1.ClientCommandManager.argument;
-import static net.fabricmc.fabric.api.client.command.v1.ClientCommandManager.literal;
+import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
+import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 public class Commands {
     public static void init() {
-        ClientCommandManager.DISPATCHER.register(literal("tmp")
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            dispatcher.register(literal("tmp")
                 .then(literal("whitelist")
                         .then(literal("add")
                                 .then(argument("nickname", EntityArgumentType.player())
@@ -205,14 +204,15 @@ public class Commands {
 
                                     return 1;
                                 }))));
+        });
     }
 
     private static void sendFormattedText(String key, Object formatObj) {
-        sendMessage(new LiteralText(I18n.translate(key, formatObj)));
+        sendMessage(Text.literal(I18n.translate(key, formatObj)));
     }
 
     private static void sendTranslatableText(String key) {
-        sendMessage(new TranslatableText(key));
+        sendMessage(Text.translatable(key));
     }
 
     private static void sendMessage(Text message) {

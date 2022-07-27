@@ -13,8 +13,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -108,8 +107,8 @@ public class TooManyPlayers implements ModInitializer {
 
     public static void showToggleStatus(String keyName, boolean toggleBoolean) {
         assert MinecraftClient.getInstance().player != null;
-        MinecraftClient.getInstance().player.sendMessage(new LiteralText(new TranslatableText(MOD_ID + ".midnightconfig." + keyName)
-                .getString() + ": " + new TranslatableText(toggleBoolean? "options.on":"options.off").getString()), true);
+        MinecraftClient.getInstance().player.sendMessage(Text.literal(Text.translatable(MOD_ID + ".midnightconfig." + keyName)
+                .getString() + ": " + Text.translatable(toggleBoolean? "options.on":"options.off").getString()), true);
 
     }
 

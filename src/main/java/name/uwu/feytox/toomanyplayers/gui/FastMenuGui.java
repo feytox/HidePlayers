@@ -10,7 +10,6 @@ import name.uwu.feytox.toomanyplayers.TMPConfig;
 import name.uwu.feytox.toomanyplayers.TooManyPlayers;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
 public class FastMenuGui extends LightweightGuiDescription {
@@ -28,7 +27,7 @@ public class FastMenuGui extends LightweightGuiDescription {
         FTextField nicknameField = new FTextField(Text.of(nickname));
 
         WButton whitelist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/white_list.png")),
-                new TranslatableText(TooManyPlayers.MOD_ID + ".gui.white_list"));
+                Text.translatable(TooManyPlayers.MOD_ID + ".gui.white_list"));
         whitelist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
             if (TMPConfig.whitelist.contains(nick)) {
@@ -42,7 +41,7 @@ public class FastMenuGui extends LightweightGuiDescription {
         WSprite whitelist_status = new WSprite(new Texture(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/white_list_indicator.png")));
 
         WButton blocklist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/block_list.png")),
-                new TranslatableText(TooManyPlayers.MOD_ID + ".gui.block_list"));
+                Text.translatable(TooManyPlayers.MOD_ID + ".gui.block_list"));
         blocklist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
             if (TMPConfig.blocklist.contains(nick)) {
@@ -56,7 +55,7 @@ public class FastMenuGui extends LightweightGuiDescription {
         WSprite blocklist_status = new WSprite(new Texture(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/block_list_indicator.png")));
 
         WButton hideskinslist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/hide_skin.png")),
-                new TranslatableText(TooManyPlayers.MOD_ID + ".gui.hide_skin"));
+                Text.translatable(TooManyPlayers.MOD_ID + ".gui.hide_skin"));
         hideskinslist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
             if (TMPConfig.hideskinlist.contains(nick)) {
