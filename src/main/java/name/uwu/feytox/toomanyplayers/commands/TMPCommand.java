@@ -1,6 +1,10 @@
-package name.uwu.feytox.toomanyplayers;
+package name.uwu.feytox.toomanyplayers.commands;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.context.CommandContext;
+import name.uwu.feytox.toomanyplayers.OnlineWhitelist;
+import name.uwu.feytox.toomanyplayers.Presets;
+import name.uwu.feytox.toomanyplayers.TMPConfig;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.resource.language.I18n;
@@ -13,15 +17,14 @@ import static name.uwu.feytox.toomanyplayers.TooManyPlayers.MOD_ID;
 import static net.fabricmc.fabric.api.client.command.v1.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v1.ClientCommandManager.literal;
 
-public class Commands {
+public class TMPCommand {
     public static void init() {
         ClientCommandManager.DISPATCHER.register(literal("tmp")
                 .then(literal("whitelist")
                         .then(literal("add")
                                 .then(argument("nickname", EntityArgumentType.player())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (!TMPConfig.whitelist.contains(nick)) {
                                                 TMPConfig.whitelist.add(nick);
                                                 TMPConfig.save();
@@ -34,8 +37,7 @@ public class Commands {
                         .then(literal("remove")
                                 .then(argument("nickname", TMPlistArgumentType.whitelist())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (TMPConfig.whitelist.contains(nick)) {
                                                 TMPConfig.whitelist.remove(nick);
                                                 TMPConfig.save();
@@ -62,8 +64,7 @@ public class Commands {
                         .then(literal("add")
                                 .then(argument("nickname", EntityArgumentType.player())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (!TMPConfig.blocklist.contains(nick)) {
                                                 TMPConfig.blocklist.add(nick);
                                                 TMPConfig.save();
@@ -76,8 +77,7 @@ public class Commands {
                         .then(literal("remove")
                                 .then(argument("nickname", TMPlistArgumentType.blocklist())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (TMPConfig.blocklist.contains(nick)) {
                                                 TMPConfig.blocklist.remove(nick);
                                                 TMPConfig.save();
@@ -104,8 +104,7 @@ public class Commands {
                         .then(literal("add")
                                 .then(argument("nickname", EntityArgumentType.player())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (!TMPConfig.hideskinlist.contains(nick)) {
                                                 TMPConfig.hideskinlist.add(nick);
                                                 TMPConfig.save();
@@ -118,8 +117,7 @@ public class Commands {
                         .then(literal("remove")
                                 .then(argument("nickname", TMPlistArgumentType.hideskinlist())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String nick = inputSplitted[inputSplitted.length-1];
+                                            String nick = parseLast(context);
                                             if (TMPConfig.hideskinlist.contains(nick)) {
                                                 TMPConfig.hideskinlist.remove(nick);
                                                 TMPConfig.save();
@@ -146,8 +144,7 @@ public class Commands {
                         .then(literal("create")
                                 .then(argument("preset name", StringArgumentType.string())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String presetName = inputSplitted[inputSplitted.length-1];
+                                            String presetName = parseLast(context);
                                             Presets.createPreset(presetName);
                                             sendTranslatableText(MOD_ID + ".preset.create");
                                             return 1;
@@ -155,8 +152,7 @@ public class Commands {
                         .then(literal("remove")
                                 .then(argument("preset name", PresetArgumentType.presetWithoutDefaults())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String presetName = inputSplitted[inputSplitted.length-1];
+                                            String presetName = parseLast(context);
                                             boolean result = Presets.removePreset(presetName);
                                             if (result) {
                                                 sendTranslatableText(MOD_ID + ".preset.remove.success");
@@ -168,8 +164,7 @@ public class Commands {
                         .then(literal("select")
                                 .then(argument("preset name", PresetArgumentType.preset())
                                         .executes(context -> {
-                                            String[] inputSplitted = context.getInput().split(" ");
-                                            String presetName = inputSplitted[inputSplitted.length-1];
+                                            String presetName = parseLast(context);
                                             if (Presets.getPresets(true).contains(presetName)) {
                                                 Presets.setPreset(presetName);
                                                 sendTranslatableText(MOD_ID + ".preset.select.success");
@@ -195,8 +190,7 @@ public class Commands {
                         })
                         .then(argument("URL", StringArgumentType.greedyString())
                                 .executes(context -> {
-                                    String[] inputSplitted = context.getInput().split(" ");
-                                    String url = inputSplitted[inputSplitted.length-1];
+                                    String url = parseLast(context);
                                     if (OnlineWhitelist.reloadWhitelist(url)) {
                                         sendTranslatableText(MOD_ID + ".online.success");
                                     } else {
@@ -205,6 +199,11 @@ public class Commands {
 
                                     return 1;
                                 }))));
+    }
+
+    private static <S> String parseLast(CommandContext<S> context) {
+        String[] inputSplitted = context.getInput().split(" ");
+        return inputSplitted[inputSplitted.length-1];
     }
 
     private static void sendFormattedText(String key, Object formatObj) {
