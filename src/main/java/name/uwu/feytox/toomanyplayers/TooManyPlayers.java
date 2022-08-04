@@ -1,5 +1,6 @@
 package name.uwu.feytox.toomanyplayers;
 
+import name.uwu.feytox.toomanyplayers.commands.TMPCommand;
 import name.uwu.feytox.toomanyplayers.gui.FastMenuGui;
 import name.uwu.feytox.toomanyplayers.gui.GuiScreen;
 import net.fabricmc.api.ModInitializer;
@@ -28,7 +29,7 @@ public class TooManyPlayers implements ModInitializer {
     @Override
     public void onInitialize() {
         TMPConfig.init();
-        Commands.init();
+        TMPCommand.init();
         
         OnlineWhitelist.reloadWhitelist();
 
