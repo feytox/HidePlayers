@@ -1,8 +1,5 @@
-package name.uwu.feytox.toomanyplayers;
+package ru.feytox.toomanyplayers;
 
-import name.uwu.feytox.toomanyplayers.commands.TMPCommand;
-import name.uwu.feytox.toomanyplayers.gui.FastMenuGui;
-import name.uwu.feytox.toomanyplayers.gui.GuiScreen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
@@ -20,6 +17,9 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import org.lwjgl.glfw.GLFW;
+import ru.feytox.toomanyplayers.commands.TMPCommand;
+import ru.feytox.toomanyplayers.gui.FastMenuGui;
+import ru.feytox.toomanyplayers.gui.GuiScreen;
 
 import javax.annotation.Nullable;
 

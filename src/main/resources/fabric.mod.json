@@ -19,7 +19,7 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "name.uwu.feytox.toomanyplayers.TooManyPlayers"
+      "ru.feytox.toomanyplayers.TooManyPlayers"
     ]
   },
   "mixins": [

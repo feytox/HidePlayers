@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers.gui;
+package ru.feytox.toomanyplayers.gui;
 
 import io.github.cottonmc.cotton.gui.client.LightweightGuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WButton;
@@ -6,11 +6,11 @@ import io.github.cottonmc.cotton.gui.widget.WSprite;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
 import io.github.cottonmc.cotton.gui.widget.icon.TextureIcon;
-import name.uwu.feytox.toomanyplayers.TMPConfig;
-import name.uwu.feytox.toomanyplayers.TooManyPlayers;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import ru.feytox.toomanyplayers.TMPConfig;
+import ru.feytox.toomanyplayers.TooManyPlayers;
 
 public class FastMenuGui extends LightweightGuiDescription {
 

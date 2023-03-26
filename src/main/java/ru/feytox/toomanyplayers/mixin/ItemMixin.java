@@ -1,11 +1,11 @@
-package name.uwu.feytox.toomanyplayers.mixin;
+package ru.feytox.toomanyplayers.mixin;
 
-import name.uwu.feytox.toomanyplayers.TMPConfig;
 import net.minecraft.item.Item;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import ru.feytox.toomanyplayers.TMPConfig;
 
 @Mixin(Item.class)
 public class ItemMixin {

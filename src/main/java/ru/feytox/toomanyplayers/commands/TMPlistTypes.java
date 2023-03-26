@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers.commands;
+package ru.feytox.toomanyplayers.commands;
 
 public enum TMPlistTypes {
     WHITELIST, BLOCKLIST, HIDESKINLIST

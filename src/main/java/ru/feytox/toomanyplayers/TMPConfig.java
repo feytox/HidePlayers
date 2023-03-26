@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers;
+package ru.feytox.toomanyplayers;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 

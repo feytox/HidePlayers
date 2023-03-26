@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers;
+package ru.feytox.toomanyplayers;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;

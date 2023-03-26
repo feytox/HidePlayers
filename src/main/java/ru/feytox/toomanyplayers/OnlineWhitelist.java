@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers;
+package ru.feytox.toomanyplayers;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

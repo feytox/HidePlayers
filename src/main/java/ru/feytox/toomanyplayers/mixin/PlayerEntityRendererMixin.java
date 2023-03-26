@@ -1,8 +1,5 @@
-package name.uwu.feytox.toomanyplayers.mixin;
+package ru.feytox.toomanyplayers.mixin;
 
-import name.uwu.feytox.toomanyplayers.HidingAreas;
-import name.uwu.feytox.toomanyplayers.TMPConfig;
-import name.uwu.feytox.toomanyplayers.TooManyPlayers;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.PlayerModelPart;
@@ -11,6 +8,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import ru.feytox.toomanyplayers.HidingAreas;
+import ru.feytox.toomanyplayers.TMPConfig;
+import ru.feytox.toomanyplayers.TooManyPlayers;
 
 @Mixin(PlayerEntityRenderer.class)
 public class PlayerEntityRendererMixin {

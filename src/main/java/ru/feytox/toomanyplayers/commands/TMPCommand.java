@@ -1,19 +1,19 @@
-package name.uwu.feytox.toomanyplayers.commands;
+package ru.feytox.toomanyplayers.commands;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import name.uwu.feytox.toomanyplayers.OnlineWhitelist;
-import name.uwu.feytox.toomanyplayers.Presets;
-import name.uwu.feytox.toomanyplayers.TMPConfig;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.command.argument.EntityArgumentType;
 import net.minecraft.text.Text;
+import ru.feytox.toomanyplayers.OnlineWhitelist;
+import ru.feytox.toomanyplayers.Presets;
+import ru.feytox.toomanyplayers.TMPConfig;
 
-import static name.uwu.feytox.toomanyplayers.TooManyPlayers.MOD_ID;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
+import static ru.feytox.toomanyplayers.TooManyPlayers.MOD_ID;
 
 public class TMPCommand {
     public static void init() {

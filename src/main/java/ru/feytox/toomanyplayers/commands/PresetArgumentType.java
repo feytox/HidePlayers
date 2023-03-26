@@ -1,11 +1,11 @@
-package name.uwu.feytox.toomanyplayers.commands;
+package ru.feytox.toomanyplayers.commands;
 
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
-import name.uwu.feytox.toomanyplayers.Presets;
+import ru.feytox.toomanyplayers.Presets;
 
 import javax.annotation.Nullable;
 import java.io.Serializable;

@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers.gui;
+package ru.feytox.toomanyplayers.gui;
 
 import io.github.cottonmc.cotton.gui.widget.WTextField;
 import net.minecraft.text.Text;

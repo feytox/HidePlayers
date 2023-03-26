@@ -1,4 +1,4 @@
-package name.uwu.feytox.toomanyplayers.mixin.accessors;
+package ru.feytox.toomanyplayers.mixin.accessors;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.client.network.PlayerListEntry;
