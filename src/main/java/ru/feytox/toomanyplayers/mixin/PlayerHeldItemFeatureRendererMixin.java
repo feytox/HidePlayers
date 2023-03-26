@@ -2,7 +2,7 @@ package ru.feytox.toomanyplayers.mixin;
 
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.PlayerHeldItemFeatureRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -20,7 +20,7 @@ import ru.feytox.toomanyplayers.TooManyPlayers;
 public class PlayerHeldItemFeatureRendererMixin {
 
     @Inject(method = "renderItem", at = @At("HEAD"), cancellable = true)
-    public void onRenderItem(LivingEntity entity, ItemStack stack, ModelTransformation.Mode transformationMode, Arm arm, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
+    public void onRenderItem(LivingEntity entity, ItemStack stack, ModelTransformationMode transformationMode, Arm arm, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (TMPConfig.toggleMod) {
             if ((TMPConfig.hideHeldItems && !TMPConfig.toggleAreas) || HidingAreas.isHeldItemsHiding(entity)) {
                 if (entity instanceof PlayerEntity && !((PlayerEntity) entity).isMainPlayer()
