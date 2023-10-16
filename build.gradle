@@ -31,9 +31,6 @@ dependencies {
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	include "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
-
-	implementation 'com.google.code.gson:gson:2.9.0'
-	modImplementation "com.github.feytox:OptiDevium:${project.minecraft_version}-SNAPSHOT"
 }
 
 processResources {
