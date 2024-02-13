@@ -5,9 +5,9 @@ import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import org.jetbrains.annotations.Nullable;
 import ru.feytox.toomanyplayers.TMPConfig;
 
-import javax.annotation.Nullable;
 import java.io.Serializable;
 import java.util.concurrent.CompletableFuture;
 
@@ -28,10 +28,6 @@ public class TMPlistArgumentType implements ArgumentType<String>, Serializable {
 
     public static TMPlistArgumentType hideskinlist() {
         return new TMPlistArgumentType(TMPlistTypes.HIDESKINLIST);
-    }
-
-    public static <S> String getTMPlistPlayer(CommandContext<S> context, String name) {
-        return context.getArgument(name, String.class);
     }
 
     @Nullable

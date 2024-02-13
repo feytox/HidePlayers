@@ -5,9 +5,9 @@ import com.mojang.brigadier.arguments.ArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.suggestion.Suggestions;
 import com.mojang.brigadier.suggestion.SuggestionsBuilder;
+import org.jetbrains.annotations.Nullable;
 import ru.feytox.toomanyplayers.Presets;
 
-import javax.annotation.Nullable;
 import java.io.Serializable;
 import java.util.concurrent.CompletableFuture;
 

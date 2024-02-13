@@ -16,12 +16,11 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
+import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 import ru.feytox.toomanyplayers.commands.TMPCommand;
 import ru.feytox.toomanyplayers.gui.FastMenuGui;
 import ru.feytox.toomanyplayers.gui.GuiScreen;
-
-import javax.annotation.Nullable;
 
 public class TooManyPlayers implements ModInitializer {
     public static final String MOD_ID = "toomanyplayers";
