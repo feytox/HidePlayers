@@ -89,7 +89,7 @@ public class FastMenuGui extends LightweightGuiDescription {
 
     private static String getNick(FTextField nicknameField) {
         String nick = nicknameField.getText();
-        if (nick.equals("")) {
+        if (nick.isEmpty()) {
             nick = nicknameField.getSuggestion().getString();
         }
         return nick;

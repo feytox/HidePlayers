@@ -37,9 +37,6 @@ public class HidingAreas {
         return 4;
     }
 
-    private static boolean isFirstArea(Entity entity) {
-        return getArea(entity) == 1 && TMPConfig.toggleAreas;
-    }
     private static boolean isSecondArea(Entity entity) {
         return getArea(entity) >= 2 && TMPConfig.toggleAreas;
     }
