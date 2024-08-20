@@ -12,6 +12,7 @@ import net.minecraft.entity.decoration.ItemFrameEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -103,6 +104,10 @@ public class TooManyPlayers implements ModInitializer {
                 client.setScreen(TMPConfig.getScreen(client.currentScreen, "toomanyplayers"));
             }
         });
+    }
+
+    public static Identifier id(String path) {
+        return Identifier.of(MOD_ID, path);
     }
 
     public static void showToggleStatus(String keyName, boolean toggleBoolean) {

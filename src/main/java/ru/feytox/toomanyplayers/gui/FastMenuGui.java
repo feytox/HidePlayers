@@ -8,7 +8,6 @@ import io.github.cottonmc.cotton.gui.widget.data.Texture;
 import io.github.cottonmc.cotton.gui.widget.icon.TextureIcon;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import ru.feytox.toomanyplayers.TMPConfig;
 import ru.feytox.toomanyplayers.TooManyPlayers;
 
@@ -26,7 +25,7 @@ public class FastMenuGui extends LightweightGuiDescription {
 
         FTextField nicknameField = new FTextField(Text.of(nickname));
 
-        WButton whitelist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/white_list.png")),
+        WButton whitelist_button = new WButton(new TextureIcon(TooManyPlayers.id("textures/gui/white_list.png")),
                 Text.translatable(TooManyPlayers.MOD_ID + ".gui.white_list"));
         whitelist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
@@ -38,9 +37,9 @@ public class FastMenuGui extends LightweightGuiDescription {
             TMPConfig.save();
             MinecraftClient.getInstance().setScreen(null);
         });
-        WSprite whitelist_status = new WSprite(new Texture(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/white_list_indicator.png")));
+        WSprite whitelist_status = new WSprite(new Texture(TooManyPlayers.id("textures/gui/white_list_indicator.png")));
 
-        WButton blocklist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/block_list.png")),
+        WButton blocklist_button = new WButton(new TextureIcon(TooManyPlayers.id("textures/gui/block_list.png")),
                 Text.translatable(TooManyPlayers.MOD_ID + ".gui.block_list"));
         blocklist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
@@ -52,9 +51,9 @@ public class FastMenuGui extends LightweightGuiDescription {
             TMPConfig.save();
             MinecraftClient.getInstance().setScreen(null);
         });
-        WSprite blocklist_status = new WSprite(new Texture(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/block_list_indicator.png")));
+        WSprite blocklist_status = new WSprite(new Texture(TooManyPlayers.id("textures/gui/block_list_indicator.png")));
 
-        WButton hideskinslist_button = new WButton(new TextureIcon(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/hide_skin.png")),
+        WButton hideskinslist_button = new WButton(new TextureIcon(TooManyPlayers.id("textures/gui/hide_skin.png")),
                 Text.translatable(TooManyPlayers.MOD_ID + ".gui.hide_skin"));
         hideskinslist_button.setOnClick(() -> {
             String nick = getNick(nicknameField);
@@ -66,7 +65,7 @@ public class FastMenuGui extends LightweightGuiDescription {
             TMPConfig.save();
             MinecraftClient.getInstance().setScreen(null);
         });
-        WSprite hideskin_status = new WSprite(new Texture(new Identifier(TooManyPlayers.MOD_ID, "textures/gui/hide_skin_indicator.png")));
+        WSprite hideskin_status = new WSprite(new Texture(TooManyPlayers.id("textures/gui/hide_skin_indicator.png")));
 
 
         root.add(nicknameField, 0, 0, 145, 20);
